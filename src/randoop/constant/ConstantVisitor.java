@@ -30,8 +30,6 @@ public class ConstantVisitor extends ASTVisitor {
     Expression lhand = node.getLeftHandSide();
     Expression rhand = node.getRightHandSide();
     
-    
-    
     return true;
   }
   
