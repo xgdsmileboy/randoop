@@ -1,4 +1,4 @@
-package randoop.constant.test;
+package randoop.variation.test;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -8,7 +8,7 @@ import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 
-import randoop.constant.ConstantVisitor;
+import randoop.variation.visitor.VariantCollectVisitor;
 
 public class TestConstantVisitor {
 
@@ -59,6 +59,6 @@ public class TestConstantVisitor {
     String path = "src.mytest.DummyClass.java";
     CompilationUnit cu = parse(readFileToString(path));
 
-    cu.accept(new ConstantVisitor());
+    cu.accept(new VariantCollectVisitor());
   }
 }

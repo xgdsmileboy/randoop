@@ -137,7 +137,7 @@ public class SequenceCollection {
    * index is said to produce a useful value (and if the user later queries for
    * all sequences that create a T, the sequence will be in the collection
    * returned by the query). How a value is deemed useful or not is left up to
-   * the client.
+   * the client. 
    */
   public void add(Sequence sequence) {
     List<Class<?>> classes = new ArrayList<Class<?>>();
