@@ -46,7 +46,6 @@ import randoop.ObjectContract;
 import randoop.RandoopClassLoader;
 import randoop.RandoopListenerManager;
 import randoop.SeedSequences;
-import randoop.constant.ConstantMining;
 import randoop.instrument.ExercisedClassVisitor;
 import randoop.operation.ConstructorCall;
 import randoop.operation.NonreceiverTerm;
@@ -86,6 +85,7 @@ import randoop.util.Randomness;
 import randoop.util.ReflectionExecutor;
 import randoop.util.predicate.AlwaysFalse;
 import randoop.util.predicate.Predicate;
+import randoop.variation.VariableCollection;
 
 import javassist.ClassPool;
 
@@ -147,6 +147,7 @@ public class GenTests extends GenInputsAbstract {
 
     if(args[0].contains("--testclass=")){
       testClassPath = "src."+args[0].substring(args[0].indexOf("=")+1);
+//      GenInputsAbstract.literals_file.add("CLASSES");
 //      System.out.println(testClassPath);
     }
     
@@ -382,7 +383,7 @@ public class GenTests extends GenInputsAbstract {
       System.exit(1);
     }
     // once tests generated,
-
+//    GenInputsAbstract.output_components = new File("./sequence.txt");
     if (GenInputsAbstract.output_components != null) {
 
       assert explorer instanceof ForwardGenerator;

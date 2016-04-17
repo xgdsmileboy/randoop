@@ -157,6 +157,11 @@ public class JunitFileWriter {
           out.println("*/");
         }
 
+        System.out.println("out put into files\n");
+        System.out.println(s.toCodeString());
+        System.out.println("\n\n");
+        
+        
         writeTest(out, className, methodNameGen.next(), s);
         out.println();
       }

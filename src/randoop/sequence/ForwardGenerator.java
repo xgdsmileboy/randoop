@@ -108,6 +108,7 @@ public class ForwardGenerator extends AbstractGenerator {
     ExecutableSequence eSeq = null;
 
     eSeq = createNewUniqueSequence();
+    
     if (eSeq == null) {
       return null;
     }
@@ -141,7 +142,7 @@ public class ForwardGenerator extends AbstractGenerator {
     endTime = System.nanoTime();
     gentime += endTime - startTime;
     eSeq.gentime = gentime;
-
+    
     return eSeq;
 
   }
@@ -273,6 +274,7 @@ public class ForwardGenerator extends AbstractGenerator {
       return null;
 
     // Select a StatementInfo
+    //============================This point -- Randomly select a method to test=====================
     operation = Randomness.randomMember(this.operations);
     if (Log.isLoggingOn())
       Log.logLine("Selected operation: " + operation.toString());
