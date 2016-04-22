@@ -506,7 +506,7 @@ public abstract class GenInputsAbstract extends CommandHandler {
 
   /** Name of the directory to which JUnit files should be written */
   @Option("Name of the directory to which JUnit files should be written")
-  public static String junit_output_dir = null;
+  public static String junit_output_dir = "tests";
 
   /**
    * Run test generation without output. May be desirable when running with a

@@ -9,17 +9,20 @@ import org.eclipse.jdt.core.dom.ArrayAccess;
 import org.eclipse.jdt.core.dom.BooleanLiteral;
 import org.eclipse.jdt.core.dom.CharacterLiteral;
 import org.eclipse.jdt.core.dom.Expression;
+import org.eclipse.jdt.core.dom.FieldAccess;
 import org.eclipse.jdt.core.dom.InfixExpression;
 import org.eclipse.jdt.core.dom.InfixExpression.Operator;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.Name;
 import org.eclipse.jdt.core.dom.NullLiteral;
 import org.eclipse.jdt.core.dom.NumberLiteral;
+import org.eclipse.jdt.core.dom.QualifiedName;
 import org.eclipse.jdt.core.dom.StringLiteral;
 
 import randoop.variation.data.OperationType;
 import randoop.variation.data.Utils;
 import randoop.variation.data.VariableVariant;
+
 
 public class VariableExtraction {
 
@@ -37,7 +40,7 @@ public class VariableExtraction {
   private static List<VariableVariant> extract(ArrayAccess expression){
     List<VariableVariant> variables = new ArrayList<>();
     
-    System.out.println("ArrayAccess : "+expression);
+//    System.out.println("ArrayAccess : "+expression);
     
     return variables;
   }
@@ -50,6 +53,13 @@ public class VariableExtraction {
     Expression rightExp = expression.getRightOperand();
     Operator operator = expression.getOperator();
     OperationType opty = OperationType.UNKOWN;
+    
+    if(leftExp instanceof FieldAccess){
+      leftExp = ((FieldAccess)leftExp).getName();
+    }
+    if(rightExp instanceof FieldAccess){
+      rightExp = ((FieldAccess)rightExp).getName();
+    }
 
     if (InfixExpression.Operator.AND.equals(operator)) {
       opty = OperationType.AND;
@@ -86,6 +96,8 @@ public class VariableExtraction {
 
       } else {
         // TODO
+        System.out.println("TODO: extract =>"+expression);
+        
 //        extract(leftExp, visitor);
 //        extract(rightExp, visitor);
       } 
@@ -107,6 +119,9 @@ public class VariableExtraction {
 
       } else {
         // TODO
+        
+        System.out.println("TODO: extract expression =>"+expression);
+        
 //        extract(leftExp, visitor);
 //        extract(rightExp, visitor);
       }
@@ -128,6 +143,8 @@ public class VariableExtraction {
 
       } else {
         // TODO
+        System.out.println("TODO: extract expression =>"+expression);
+        
 //        extract(leftExp, visitor);
 //        extract(rightExp, visitor);
       } 
@@ -149,6 +166,8 @@ public class VariableExtraction {
 
       } else {
         // TODO
+        System.out.println("TODO: extract expression =>"+expression);
+        
 //        extract(leftExp, visitor);
 //        extract(rightExp, visitor);
       } 
@@ -191,6 +210,8 @@ public class VariableExtraction {
 
       } else {
         // TODO
+        System.out.println("TODO: extract expression =>"+expression);
+        
 //        extract(leftExp, visitor);
 //        extract(rightExp, visitor);
       } 

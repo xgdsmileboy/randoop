@@ -34,15 +34,11 @@ public class VariableCollection {
       originalCU = cu.toString();
       
 //      cu.accept(new AnnotateVisitor());
-//      
 //      writeStringToFile(path, cu.toString());
       
       cu.accept(new ClassMappingVisitor());
-      
-      VariantCollectVisitor vcv = new VariantCollectVisitor();
-          
+      VariantCollectVisitor vcv = new VariantCollectVisitor(); 
       cu.accept(vcv);
-     
       List<VariableVariant> list = vcv.getVariants();
       
       for(VariableVariant v : list){
