@@ -46,6 +46,7 @@ import randoop.ObjectContract;
 import randoop.RandoopClassLoader;
 import randoop.RandoopListenerManager;
 import randoop.SeedSequences;
+import randoop.constant.ConstantMining;
 import randoop.instrument.ExercisedClassVisitor;
 import randoop.operation.ConstructorCall;
 import randoop.operation.NonreceiverTerm;
@@ -299,14 +300,14 @@ public class GenTests extends GenInputsAbstract {
 
     //---------------------------this is the beginning for creating the test seeds-------------- 
     // Add default seeds.
-    components.addAll(SeedSequences.objectsToSeeds(SeedSequences.primitiveSeeds));
+//    components.addAll(SeedSequences.objectsToSeeds(SeedSequences.primitiveSeeds));
 
-//    ConstantMining constantMining = new ConstantMining(testClassPath);
-//    Set list = constantMining.getSeedsSet();
+    ConstantMining constantMining = new ConstantMining(testClassPath);
+    Set list = constantMining.getSeedsSet();
     
-//    System.out.println(list);
+    System.out.println(list);
     
-//    components.addAll(SeedSequences.objectsToSeeds(list));
+    components.addAll(SeedSequences.objectsToSeeds(list));
     
     // Add user-specified seeds.
     components.addAll(SeedSequences.getSeedsFromAnnotatedFields(classes.toArray(new Class<?>[0])));
